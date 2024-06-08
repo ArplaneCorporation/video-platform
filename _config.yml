@@ -1,1 +1,5 @@
-theme: jekyll-theme-chirpy
+title: Arplane Video
+description: VideoPlatform
+baseurl: "/video-platform" # the subpath of your site, e.g. /blog
+url: "https://arplanecorporation.github.io" # the base hostname & protocol for your site
+github_username: ArplaneCorporation
