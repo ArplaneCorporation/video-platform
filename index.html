@@ -1,0 +1,13 @@
+---
+layout: default
+title: Home
+---
+<h2>Latest Videos</h2>
+<ul>
+  {% for video in site.videos %}
+    <li>
+      <a href="{{ video.url }}">{{ video.title }}</a>
+      <p>{{ video.description | truncate: 100 }}</p>
+    </li>
+  {% endfor %}
+</ul>
