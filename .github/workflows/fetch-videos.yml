@@ -1,0 +1,29 @@
+name: Fetch YouTube Videos
+
+# ตั้งค่าให้รันทุกๆ นาที
+on:
+  schedule:
+    - cron: '*/1 * * * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  update-videos:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Fetch Videos
+      run: |
+        python scripts/fetch_videos.py
+
+    - name: Commit and push
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add _videos
+        git commit -m "Fetch new videos"
+        git push origin main
